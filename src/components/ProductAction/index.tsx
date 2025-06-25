@@ -26,7 +26,7 @@ interface ProductActionProps {
 const ProductAction: React.FC<ProductActionProps> = ({ className }) => {
   return (
     <Container className={className}>
-      <Condition>Novo</Condition>
+      <DispatchTag color="orange">Mais Vendido</DispatchTag>
 
       <Row>
         <h1>Lâmpadas Automáticas Luzes Led Bluetooth</h1>
@@ -42,7 +42,7 @@ const ProductAction: React.FC<ProductActionProps> = ({ className }) => {
           <span className="cents">99</span>
         </PriceRow>
 
-        <InstallmentsInfo>em 3x de R$ 129,99</InstallmentsInfo>
+        <InstallmentsInfo>em 10x de R$ 38,99</InstallmentsInfo>
       </PriceCard>
 
       <StockStatus>Estoque disponível</StockStatus>

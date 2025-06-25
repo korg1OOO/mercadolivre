@@ -69,7 +69,7 @@ const SearchBar = styled.input`
 const SearchButton = styled.button`
   padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 20px);
   font-size: clamp(14px, 2.5vw, 16px);
-  background-color: var(--color-white);
+  background-color: var(--color-header);
   border: 1px solid var(--color-border);
   border-left: none;
   border-radius: 0 4px 4px 0;
@@ -77,7 +77,7 @@ const SearchButton = styled.button`
   outline: none;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color:var(--color-header);
   }
 `;
 

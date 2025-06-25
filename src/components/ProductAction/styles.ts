@@ -36,9 +36,9 @@ export const HeartIcon = styled(HiOutlineHeart)`
   cursor: pointer;
 `;
 
-export const DispatchTag = styled.div`
+export const DispatchTag = styled.div<{ color?: string }>`
   margin-top: clamp(6px, 2vw, 12px);
-  background: var(--color-blue);
+  background: ${(props) => (props.color === 'orange' ? 'var(--color-orange)' : 'var(--color-blue)')};
   color: var(--color-white);
   padding: clamp(4px, 1vw, 6px) clamp(6px, 2vw, 10px);
   border-radius: 4px;
