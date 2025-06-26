@@ -68,33 +68,39 @@ export const Column = styled.div`
 `;
 
 export const MobileWrapper = styled.div`
-  display: none; /* Hidden by default on desktop */
+  display: none;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 16px; /* Increased padding to create distance from borders */
+    padding: 16px;
     > * {
-      width: 100%; /* Ensure full width */
+      width: 100%;
     }
     > .mobile-header {
-      order: 1; /* Header first */
+      order: 1;
+      margin-bottom: 16px;
     }
     > .mobile-gallery {
-      order: 2; /* Gallery second */
+      order: 2;
+      margin-bottom: 16px;
+    }
+    > .mobile-connector-selector {
+      order: 3;
+      margin-bottom: 16px;
     }
     > .mobile-price {
-      order: 3; /* Price third */
+      order: 4;
     }
     > .mobile-purchase-options {
-      order: 4; /* Purchase options fourth */
+      order: 5;
     }
     > .mobile-description {
-      order: 5; /* Description fifth */
+      order: 6;
     }
     > .mobile-seller-info,
     > .mobile-warranty-section {
-      order: 6; /* SellerInfo and WarrantySection last */
+      order: 7;
     }
   }
 `;

@@ -4,12 +4,15 @@ import { HiOutlineHeart, HiOutlineCheck, HiOutlineShieldCheck } from "react-icon
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Ensure vertical alignment */
+  padding: 8px 0; /* Reduce padding to minimize height */
+  margin-bottom: 8px; /* Add space below the row */
 
   > h1 {
     width: 100%;
     font-size: clamp(20px, 3vw, 26px);
     font-weight: 600;
-    margin-bottom: 8px; /* Add space below title */
+    margin: 0; /* Remove default margin */
   }
 `;
 

@@ -21,6 +21,7 @@ import image2 from "../../assets/image2.png";
 import image3 from "../../assets/image3.png";
 import videoThumb from "../../assets/videoThumb.png";
 import video from "../../assets/video.mp4";
+import ConnectorSelector from "../ProductAction/ConnectorSelector";
 
 const Product: React.FC = () => {
   const media = [
@@ -94,6 +95,7 @@ const Product: React.FC = () => {
           <DesktopWrapper>
             <ProductHeader />
             <ProductPricing />
+            <ConnectorSelector />
             <ProductPurchaseOptions />
             <SellerInfo />
             <WarrantySection />
@@ -138,14 +140,15 @@ const Product: React.FC = () => {
                 ))}
               </div>
             </Gallery>
-            <ProductPricing className="mobile-price" />
-            <ProductPurchaseOptions className="mobile-purchase-options" />
-            <Description className="mobile-description">
-              <Info />
-            </Description>
-            <SellerInfo className="mobile-seller-info" />
-            <WarrantySection className="mobile-warranty-section" />
-          </MobileWrapper>
+  <ConnectorSelector className="mobile-connector-selector" />
+  <ProductPricing className="mobile-price" />
+  <ProductPurchaseOptions className="mobile-purchase-options" />
+  <Description className="mobile-description">
+    <Info />
+  </Description>
+  <SellerInfo className="mobile-seller-info" />
+  <WarrantySection className="mobile-warranty-section" />
+</MobileWrapper>
         </Column>
       </Panel>
     </Container>
