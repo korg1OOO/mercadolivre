@@ -1,22 +1,6 @@
 import styled from "styled-components";
 import { HiOutlineHeart, HiOutlineCheck, HiOutlineShieldCheck } from "react-icons/hi";
 
-export const Container = styled.div`
-  padding: clamp(16px, 3vw, 32px);
-  display: flex;
-  flex-direction: column;
-
-  @media (max-width: 768px) {
-    order: 2; /* Price section after carousel */
-  }
-`;
-
-export const Condition = styled.div`
-  font-size: clamp(12px, 2vw, 14px);
-  color: var(--color-gray);
-  margin-bottom: clamp(8px, 2vw, 16px);
-`;
-
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,6 +9,7 @@ export const Row = styled.div`
     width: 100%;
     font-size: clamp(20px, 3vw, 26px);
     font-weight: 600;
+    margin-bottom: 8px; /* Add space below title */
   }
 `;
 
@@ -38,19 +23,22 @@ export const HeartIcon = styled(HiOutlineHeart)`
 
 export const DispatchTag = styled.div<{ color?: string }>`
   margin-top: clamp(6px, 2vw, 12px);
-  background: ${(props) => (props.color === 'orange' ? 'var(--color-orange)' : 'var(--color-blue)')};
+  background: ${(props) =>
+    props.color === "orange" ? "var(--color-orange)" : "var(--color-blue)"};
   color: var(--color-white);
   padding: clamp(4px, 1vw, 6px) clamp(6px, 2vw, 10px);
   border-radius: 4px;
   font-size: clamp(12px, 2vw, 14px);
   font-weight: 600;
   width: fit-content;
+  margin-bottom: 8px; /* Add space below tag */
 `;
 
 export const PriceCard = styled.div`
   margin-top: clamp(10px, 2vw, 18px);
   display: flex;
   flex-direction: column;
+  padding: 10px; /* Add internal padding for distance from borders */
 `;
 
 export const PriceRow = styled.div`
@@ -71,6 +59,7 @@ export const PriceRow = styled.div`
 
 export const InstallmentsInfo = styled.div`
   font-size: clamp(14px, 2vw, 16px);
+  margin-top: 4px; /* Add space above installments */
 `;
 
 export const StockStatus = styled.div`
@@ -81,6 +70,7 @@ export const StockStatus = styled.div`
 export const MethodCard = styled.div`
   margin-top: clamp(10px, 2vw, 18px);
   display: flex;
+  padding: 10px; /* Add internal padding for distance from borders */
 
   > div {
     margin-left: clamp(4px, 1vw, 8px);
@@ -116,6 +106,7 @@ export const Actions = styled.div`
   margin-top: clamp(8px, 2vw, 16px);
   display: flex;
   flex-direction: column;
+  padding: 10px; /* Add internal padding for distance from borders */
 `;
 
 type ButtonProps = { solid?: boolean };
@@ -132,6 +123,7 @@ export const Button = styled.button<ButtonProps>`
   background: ${(props) => (props.solid ? "var(--color-blue)" : "transparent")};
   border: ${(props) => (props.solid ? "none" : "1px solid var(--color-blue)")};
   cursor: pointer;
+  width: 100%; /* Ensure buttons take full width with padding */
 `;
 
 export const Benefits = styled.ul`
@@ -139,6 +131,7 @@ export const Benefits = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
+  padding: 10px; /* Add internal padding for distance from borders */
 
   > li {
     display: flex;

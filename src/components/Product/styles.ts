@@ -38,7 +38,7 @@ export const Panel = styled.div`
     > div:first-child {
       display: none; /* Hide the first column on mobile, use MobileWrapper instead */
     }
-    > div:nth-child(2) .details-column {
+    > div:nth-child(2).details-column {
       display: block; /* Ensure details column is visible */
     }
   }
@@ -47,6 +47,11 @@ export const Panel = styled.div`
 export const Column = styled.div`
   &:first-child {
     border-right: 1px solid var(--color-border);
+    padding: 16px; /* Add padding for desktop view */
+  }
+
+  &:nth-child(2) {
+    padding: 16px; /* Add padding for desktop view in the details column */
   }
 
   @media (max-width: 768px) {
@@ -57,7 +62,7 @@ export const Column = styled.div`
     }
     &.details-column {
       border-top: none; /* Remove top border on mobile */
-      padding: 0; /* Reset padding */
+      padding: 0; /* Reset padding, handled by MobileWrapper */
     }
   }
 `;
@@ -68,20 +73,28 @@ export const MobileWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 16px; /* Increased padding to create distance from borders */
     > * {
       width: 100%; /* Ensure full width */
     }
-    > .mobile-price {
-      order: 1; /* Price first */
+    > .mobile-header {
+      order: 1; /* Header first */
     }
     > .mobile-gallery {
-      order: 2; /* Images second */
+      order: 2; /* Gallery second */
+    }
+    > .mobile-price {
+      order: 3; /* Price third */
+    }
+    > .mobile-purchase-options {
+      order: 4; /* Purchase options fourth */
     }
     > .mobile-description {
-      order: 3; /* Name third */
+      order: 5; /* Description fifth */
     }
-    > .mobile-seller-info, > .mobile-warranty-section {
-      order: 4; /* SellerInfo and WarrantySection last */
+    > .mobile-seller-info,
+    > .mobile-warranty-section {
+      order: 6; /* SellerInfo and WarrantySection last */
     }
   }
 `;
@@ -105,9 +118,10 @@ export const Gallery = styled.div<GalleryProps>`
   padding: clamp(10px, 2vw, 20px);
 
   @media (max-width: 768px) {
-    padding: 10px;
+    padding: 10px; /* Ensure internal padding, but rely on MobileWrapper for border distance */
     flex-direction: column;
     width: 100%;
+    margin-bottom: 16px; /* Add space below gallery */
   }
 
   .gallery-counter {
@@ -183,17 +197,19 @@ export const Gallery = styled.div<GalleryProps>`
 
       .carousel-wrapper {
         display: flex;
-        width: ${(props) => (props.mediaLength ? `${props.mediaLength * 100}%` : '100%')};
+        width: ${(props) => (props.mediaLength ? `${props.mediaLength * 100}%` : "100%")};
         height: 100%;
         transition: transform 0.3s ease;
-        transform: translateX(${(props) =>
-          props.currentIndex !== undefined && props.mediaLength
-            ? `-${props.currentIndex * (100 / props.mediaLength)}%`
-            : '0%'});
+        transform: translateX(
+          ${(props) =>
+            props.currentIndex !== undefined && props.mediaLength
+              ? `-${props.currentIndex * (100 / props.mediaLength)}%`
+              : "0%"}
+        );
       }
 
       .carousel-item {
-        width: ${(props) => (props.mediaLength ? `${100 / props.mediaLength}%` : '100%')};
+        width: ${(props) => (props.mediaLength ? `${100 / props.mediaLength}%` : "100%")};
         height: 100%;
         flex-shrink: 0;
         scroll-snap-align: center;

@@ -8,9 +8,11 @@ import {
   Section,
   Description,
   MobileWrapper,
-  DesktopWrapper, // New styled component
+  DesktopWrapper,
 } from "./styles";
-import ProductAction from "../ProductAction";
+import ProductHeader from "../ProductAction/ProductHeader";
+import ProductPricing from "../ProductAction/ProductPricing";
+import ProductPurchaseOptions from "../ProductAction/ProductPurchaseOptions";
 import SellerInfo from "../SellerInfo";
 
 // Import assets
@@ -90,13 +92,15 @@ const Product: React.FC = () => {
         <Column className="details-column">
           {/* Desktop-only components */}
           <DesktopWrapper>
-            <ProductAction />
+            <ProductHeader />
+            <ProductPricing />
+            <ProductPurchaseOptions />
             <SellerInfo />
             <WarrantySection />
           </DesktopWrapper>
           {/* Mobile-only components */}
           <MobileWrapper>
-            <ProductAction className="mobile-price" />
+            <ProductHeader className="mobile-header" />
             <Gallery className="mobile-gallery">
               <div className="gallery-counter">{`${currentIndex + 1}/${media.length}`}</div>
               <div className="gallery-thumbs">
@@ -134,6 +138,8 @@ const Product: React.FC = () => {
                 ))}
               </div>
             </Gallery>
+            <ProductPricing className="mobile-price" />
+            <ProductPurchaseOptions className="mobile-purchase-options" />
             <Description className="mobile-description">
               <Info />
             </Description>
@@ -146,7 +152,7 @@ const Product: React.FC = () => {
   );
 };
 
-// WarrantySection and Info components remain unchanged
+// WarrantySection and Info components
 interface WarrantySectionProps {
   className?: string;
 }
