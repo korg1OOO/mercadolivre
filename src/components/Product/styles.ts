@@ -34,12 +34,12 @@ export const Panel = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    grid-template-rows: auto; /* Single row with wrapper handling order */
+    grid-template-rows: auto;
     > div:first-child {
-      display: none; /* Hide the first column on mobile, use MobileWrapper instead */
+      display: none;
     }
     > div:nth-child(2).details-column {
-      display: block; /* Ensure details column is visible */
+      display: block;
     }
   }
 `;
@@ -47,22 +47,22 @@ export const Panel = styled.div`
 export const Column = styled.div`
   &:first-child {
     border-right: 1px solid var(--color-border);
-    padding: 16px; /* Add padding for desktop view */
+    padding: 16px;
   }
 
   &:nth-child(2) {
-    padding: 16px; /* Add padding for desktop view in the details column */
+    padding: 16px;
   }
 
   @media (max-width: 768px) {
     &:first-child {
       border-right: none;
       border-bottom: 1px solid var(--color-border);
-      display: none; /* Hide on mobile, use MobileWrapper */
+      display: none;
     }
     &.details-column {
-      border-top: none; /* Remove top border on mobile */
-      padding: 0; /* Reset padding, handled by MobileWrapper */
+      border-top: none;
+      padding: 0;
     }
   }
 `;
@@ -95,39 +95,43 @@ export const MobileWrapper = styled.div`
     > .mobile-purchase-options {
       order: 5;
     }
-    > .mobile-description {
+    > .related-products-section {
       order: 6;
+      margin-bottom: 16px;
+    }
+    > .mobile-description {
+      order: 7;
     }
     > .mobile-seller-info,
     > .mobile-warranty-section {
-      order: 7;
+      order: 8;
     }
   }
 `;
 
 export const DesktopWrapper = styled.div`
-  display: block; /* Visible on desktop */
+  display: block;
   @media (max-width: 768px) {
-    display: none; /* Hidden on mobile */
+    display: none;
   }
 `;
 
 interface GalleryProps {
   currentIndex?: number;
-  mediaLength?: number; // Prop for media length
+  mediaLength?: number;
 }
 
-export const Gallery = styled.div<GalleryProps>`
+export const Gallery = styled.div`
   position: relative;
   display: flex;
   align-items: flex-start;
   padding: clamp(10px, 2vw, 20px);
 
   @media (max-width: 768px) {
-    padding: 10px; /* Ensure internal padding, but rely on MobileWrapper for border distance */
+    padding: 10px;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 16px; /* Add space below gallery */
+    margin-bottom: 16px;
   }
 
   .gallery-counter {
@@ -194,42 +198,6 @@ export const Gallery = styled.div<GalleryProps>`
       width: 100%;
       max-width: 100%;
       height: clamp(200px, 60vw, 300px);
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      display: flex;
-      flex-direction: row;
-
-      .carousel-wrapper {
-        display: flex;
-        width: ${(props) => (props.mediaLength ? `${props.mediaLength * 100}%` : "100%")};
-        height: 100%;
-        transition: transform 0.3s ease;
-        transform: translateX(
-          ${(props) =>
-            props.currentIndex !== undefined && props.mediaLength
-              ? `-${props.currentIndex * (100 / props.mediaLength)}%`
-              : "0%"}
-        );
-      }
-
-      .carousel-item {
-        width: ${(props) => (props.mediaLength ? `${100 / props.mediaLength}%` : "100%")};
-        height: 100%;
-        flex-shrink: 0;
-        scroll-snap-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        > img,
-        > video {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-      }
     }
   }
 
@@ -267,8 +235,20 @@ export const Section = styled.div`
   display: flex;
   flex-direction: column;
 
+  &.related-products-section {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   @media (max-width: 768px) {
     order: 4;
+    min-width: 0;
+    padding: 16px;
   }
 
   > h4 {
@@ -306,7 +286,7 @@ export const Description = styled.div`
   padding: clamp(22px, 4vw, 44px) clamp(16px, 3vw, 32px);
 
   @media (max-width: 768px) {
-    order: 3; /* Name/Description third */
+    order: 3;
   }
 
   > h2 {

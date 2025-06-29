@@ -4,15 +4,15 @@ import { HiOutlineHeart, HiOutlineCheck, HiOutlineShieldCheck } from "react-icon
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Ensure vertical alignment */
-  padding: 8px 0; /* Reduce padding to minimize height */
-  margin-bottom: 8px; /* Add space below the row */
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 8px;
 
   > h1 {
     width: 100%;
     font-size: clamp(20px, 3vw, 26px);
     font-weight: 600;
-    margin: 0; /* Remove default margin */
+    margin: 0;
   }
 `;
 
@@ -34,14 +34,14 @@ export const DispatchTag = styled.div<{ color?: string }>`
   font-size: clamp(12px, 2vw, 14px);
   font-weight: 600;
   width: fit-content;
-  margin-bottom: 8px; /* Add space below tag */
+  margin-bottom: 8px;
 `;
 
 export const PriceCard = styled.div`
   margin-top: clamp(10px, 2vw, 18px);
   display: flex;
   flex-direction: column;
-  padding: 10px; /* Add internal padding for distance from borders */
+  padding: 10px;
 `;
 
 export const PriceRow = styled.div`
@@ -62,7 +62,7 @@ export const PriceRow = styled.div`
 
 export const InstallmentsInfo = styled.div`
   font-size: clamp(14px, 2vw, 16px);
-  margin-top: 4px; /* Add space above installments */
+  margin-top: 4px;
 `;
 
 export const StockStatus = styled.div`
@@ -73,7 +73,7 @@ export const StockStatus = styled.div`
 export const MethodCard = styled.div`
   margin-top: clamp(10px, 2vw, 18px);
   display: flex;
-  padding: 10px; /* Add internal padding for distance from borders */
+  padding: 10px;
 
   > div {
     margin-left: clamp(4px, 1vw, 8px);
@@ -109,7 +109,7 @@ export const Actions = styled.div`
   margin-top: clamp(8px, 2vw, 16px);
   display: flex;
   flex-direction: column;
-  padding: 10px; /* Add internal padding for distance from borders */
+  padding: 10px;
 `;
 
 type ButtonProps = { solid?: boolean };
@@ -126,7 +126,11 @@ export const Button = styled.button<ButtonProps>`
   background: ${(props) => (props.solid ? "var(--color-blue)" : "transparent")};
   border: ${(props) => (props.solid ? "none" : "1px solid var(--color-blue)")};
   cursor: pointer;
-  width: 100%; /* Ensure buttons take full width with padding */
+  width: 100%;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const Benefits = styled.ul`
@@ -134,7 +138,7 @@ export const Benefits = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  padding: 10px; /* Add internal padding for distance from borders */
+  padding: 10px;
 
   > li {
     display: flex;

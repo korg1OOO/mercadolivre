@@ -1,12 +1,12 @@
-// src/components/Header/index.tsx
 import React from "react";
 import styled from "styled-components";
+import { FaSearch } from "react-icons/fa"; // Import the search icon
 
 const HeaderContainer = styled.header`
   background-color: var(--color-header);
   padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 20px);
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,7 +19,7 @@ const LogoSection = styled.div`
 `;
 
 const Logo = styled.img`
-  height: clamp(30px, 8vw, 50px); /* Responsive logo size */
+  height: clamp(30px, 8vw, 50px);
   margin-right: clamp(5px, 2vw, 10px);
   max-width: 100%;
 `;
@@ -31,7 +31,7 @@ const CepLink = styled.a`
   margin-right: clamp(10px, 3vw, 20px);
 
   @media (max-width: 768px) {
-    display: none; /* Hide CEP link on mobile */
+    display: none;
   }
 `;
 
@@ -39,18 +39,18 @@ const SearchSection = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-  margin: 10px 0; /* Add margin for stacking */
-  width: 100%; /* Full width on smaller screens */
+  margin: 10px 0;
+  width: 100%;
 
   @media (max-width: 768px) {
-    order: 1; /* Move search below logo on mobile */
+    order: 1;
   }
 `;
 
 const SearchForm = styled.form`
   display: flex;
   width: 100%;
-  max-width: 600px; /* Limit max width on larger screens */
+  max-width: 600px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -64,30 +64,35 @@ const SearchBar = styled.input`
   border: 1px solid var(--color-border);
   border-radius: 4px 0 0 4px;
   outline: none;
+  background-color: white;
 `;
 
 const SearchButton = styled.button`
-  padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 20px);
+  padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 15px); /* Adjusted padding for icon */
   font-size: clamp(14px, 2.5vw, 16px);
-  background-color: var(--color-header);
+  background-color: white;
   border: 1px solid var(--color-border);
   border-left: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   outline: none;
+  color: var(--color-black);
+  display: flex; /* Ensure icon centers properly */
+  align-items: center; /* Center icon vertically */
+  justify-content: center; /* Center icon horizontally */
 
   &:hover {
-    background-color:var(--color-header);
+    background-color: #f5f5f5;
   }
 `;
 
 const NavSection = styled.nav`
   display: flex;
   align-items: center;
-  flex-wrap: wrap; /* Allow nav items to wrap */
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    display: none; /* Hide navigation on mobile (consider a hamburger menu) */
+    display: none;
   }
 `;
 
@@ -141,7 +146,9 @@ const Header: React.FC = () => {
             name="q"
             placeholder="Buscar produtos, marcas e muito mais..."
           />
-          <SearchButton type="submit">🔍</SearchButton>
+          <SearchButton type="submit">
+            <FaSearch style={{ color: '#808080', fontSize: '16px' }} /> {/* Gray color and size */}
+          </SearchButton>
         </SearchForm>
       </SearchSection>
       <NavSection>

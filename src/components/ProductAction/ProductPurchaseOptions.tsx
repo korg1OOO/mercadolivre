@@ -3,9 +3,10 @@ import { MethodCard, CheckIcon, Actions, Button, Benefits, ShieldIcon } from "./
 
 interface ProductPurchaseOptionsProps {
   className?: string;
+  onPurchase: () => void; // Add callback for purchase action
 }
 
-const ProductPurchaseOptions: React.FC<ProductPurchaseOptionsProps> = ({ className }) => {
+const ProductPurchaseOptions: React.FC<ProductPurchaseOptionsProps> = ({ className, onPurchase }) => {
   return (
     <div className={className}>
       <MethodCard>
@@ -19,7 +20,7 @@ const ProductPurchaseOptions: React.FC<ProductPurchaseOptionsProps> = ({ classNa
         </div>
       </MethodCard>
       <Actions>
-        <Button solid>Comprar agora</Button>
+        <Button solid onClick={onPurchase}>Comprar agora</Button>
         <Button>Adicionar ao carrinho</Button>
       </Actions>
       <Benefits>
