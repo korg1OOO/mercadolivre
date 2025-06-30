@@ -336,6 +336,11 @@ const NavButton = styled.button`
   }
 `;
 
+interface RelatedProductsProps {
+  products: RelatedProduct[];
+  className?: string; // Add this line to allow className as an optional prop
+}
+
 const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, className }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -359,11 +364,11 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, className }
               {product.isSponsored && <span>Patrocinado</span>}
               <img src={product.image} alt={product.name} />
               <p>{product.name}</p>
-              <p>R${product.price.toFixed(2)}</p> {/* Current Price - 4th child */}
-              <p>R${product.originalPrice.toFixed(2)}</p> {/* Original Price - 5th child */}
-              <p>{product.discount}</p> {/* Discount - 6th child */}
-              {product.installments && <p>{product.installments}</p>} {/* Installments - 7th child */}
-              <p>Frete grátis</p> {/* Frete grátis - 8th child */}
+              <p>R${product.price.toFixed(2)}</p>
+              <p>R${product.originalPrice.toFixed(2)}</p>
+              <p>{product.discount}</p>
+              {product.installments && <p>{product.installments}</p>}
+              <p>Frete grátis</p>
             </ProductCard>
           ))}
         </ProductList>
