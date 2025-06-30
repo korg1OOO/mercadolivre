@@ -25,6 +25,20 @@ import image3 from "../../assets/image3.png";
 import videoThumb from "../../assets/videoThumb.png";
 import video from "../../assets/video.mp4";
 
+const renderStars = (rating: number = 5.0) => {
+  const stars = [];
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+
+  for (let i = 0; i < fullStars; i++) {
+    stars.push(<Star key={i} role="img" aria-label="star">★</Star>);
+  }
+  if (hasHalfStar) {
+    stars.push(<Star key="half" role="img" aria-label="half-star">½</Star>);
+  }
+  return stars;
+};
+
 const Product: React.FC = () => {
   const media = [
     { type: "image", src: image1, alt: "Image 1" },
@@ -44,6 +58,9 @@ const Product: React.FC = () => {
     history.push("/checkout");
   };
 
+  const productRating = 5.0; // Default rating for the main product
+  const productReviewCount = 34; // Default review count
+
   const relatedProducts = [
     {
       name: "Higoogoo G70 Farol Carro Led 200W H4 H7 H11 HB3",
@@ -54,6 +71,8 @@ const Product: React.FC = () => {
       link: "https://produto.mercadolivre.com.br/MLB-5418757722-higoogoo-g70-par-farol-carro-led-200w-h4-h1-h7-h11-hb3-hb4h3-_JM#polycard_client=recommendations_vip-pads-up&reco_backend=vip-pads-up-experimental-a_marketplace&reco_model=rk_ent_v2_retsys_ads&reco_client=vip-pads-up&reco_item_pos=0&reco_backend_type=low_level&reco_id=845bcaf3-4cb2-4496-a149-fd85a695eeec&is_advertising=true&ad_domain=VIPDESKTOP_UP&ad_position=1&ad_click_id=ZTJlOTQwYmQtNzY3Zi00NTMyLThiYTYtMTVlOWZiZWNmNTU1",
       installments: "em 5x R$35,40 sem juros",
       isSponsored: true,
+      rating: 4.8,
+      reviewCount: 15,
     },
     {
       name: "Ultra Led Max 6k 15000lm 150W 12/24V H1 H3 H7 H8 H11 HB3",
@@ -64,6 +83,8 @@ const Product: React.FC = () => {
       link: "https://click1.mercadolivre.com.br/mclics/clicks/external/MLB/count?a=MgvO2KxgcqVZO5lgnWMPs1V%2BrMDC5L8i5xb6QDcMOsGGVvRlFL9DWLIH%2Byuf%2FI4HOlAjnEPeY9vvufUmv4y%2FZAG6UHuDYA2DG87MtfL%2Bk6yQ%2FyYT3QV8m7XH5lAi%2FEmvJut1sqjqAe42peLn56G22LnMUPVNyi2NeZXwTMutNRoKvC3GPV9YEQK3E9%2BoXB9U%2BsrSKbB5lm%2B5VPGgbfh760DrUWuwGcBxIGuoYKteSTMMGGYOSfETZpdMJO971pQ7ci%2F%2BagoR8OaER%2Bx4REQSjgpctBn5tBNgGDdIJnarGSbEUw6IV8saX1INo63uKGc2nqK8BOYICkZXeZQBrtovbwcZ3%2B2hIOXOPtdzbhG0PVojja3vkYILgznzaSwSsCpm2O32xitXYkvbJwvOKUlAZsj3an07BzPgVuvmkcigmeOmhB5i2iTeumVEMy7PPebyJ3hI5FH4wC1%2BqH6%2FLdz21HeV3z4%2Fu8zCITVMHtqZ3o5m2Tcvwyt%2FRPzUh%2BcxxTKTWN%2BgOXwhXmgRXG9nzy75S6B2uUi6vIszQE3Ltz%2FrUJkUN85o6bUNFlNr2l1d10Ez22UKVc8WhMmJNMob0JwWzzvJjD4dep0ZGIad9KSFaiTIqwLSkDpHz5CdhrIsRxQ0e5sSsBj3xNqQw3eh0U3z8EvbwkbQMw07ePrk%2BASdwzYzW4pcTWLprHXk1VsXfEglYlTZNJnGMkzGmLmFdETk0M0GpkrMbIEpnt0DAc2JFqNYZB9Xs1qR8f5V1fscdbOlRe4lx5184H2q%2FKYdPZZyIXjjsf%2BF9YVSWF4ySrMu9qmJVAjEqRkLu%2BKA%2FlpM1pprDiUnSfcfS2HIXFKD0rNbBw0m8BV0P46t%2B7gQChr%2FsUsNhyHbZWt6BfAi3g9OaahtbL4HmEugJ%2Bq3kmN9MSB00WjHDiKvki%2FCOfkqMkVUCYcwDHKO",
       installments: "em 6x R$42,68 sem juros",
       isSponsored: true,
+      rating: 4.6,
+      reviewCount: 10,
     },
     {
       name: "Kit Lâmpada Led Philips Ultinon Access Nano 1:1",
@@ -74,6 +95,8 @@ const Product: React.FC = () => {
       link: "https://click1.mercadolivre.com.br/mclics/clicks/external/MLB/count?a=1rB8ufiXATfbmlYX2%2Ftya15pI6bRojYjHOotHg8HSus7DsoJ%2FmDVZocFAm1w56V1GxahdzIm%2FmWACd84m8m8YOEyanbBP46O%2FiGbtmLN4EjoOW8I%2BT3e9p5G9yleqpApiSFb2KkyvmaX8ZYS6yQkFwaLf1lPkL9FZkPyvpgiE%2B64KygQQ2cm9hNCV4zaovyI3kWRKiPlyxtt%2Frq9yvLOpa3UUQ3s8luhJCFfixQKhTv0a9FMsDFG86nl4aNcfxER%2BVETiUtZ4IjT9nQEFUvoHrP6wXvA1K28xyEvQfgQ5p0E3mO99EHnZQca4b6%2FmgMk7gLEcYn4ZlXcHW7RhspqaLr2aHP4YeEexVEFbzIzB5TKcbl6oad0KerUDnCSh2tde6fA1tAVFtnEOboU%2FU0iVKr2YWYK8Da7GXtJjZQJ%2BghrVIVNFFVt8%2F4mwSFzxVS7SQu7EAc5IK1H3Af%2Bijgiu%2FQIeXHi%2FZ2C1XX8bnf5mBbWeU%2BzKQ1iYKTyNcW1T1zp4JeaAWy8kTWCGJ%2FrZI0uLwt%2BJ1mkL%2BtIDcp9VbT8Pi75TMzQAo0HPFBUSb43zLoi1Imt8RhYKteXkHbfaWA51xGRSFKnawpdB4dEU6OqAZdGyXcUYral1pPobjgRGrTztvHkVhF80d6wxzU1TpZ2DB7kiL9dSEt%2BRfHCwRO5L9UcB72c9ks9Abv27J%2F1PK0krrQg4m1%2BH%2FXg8SuU7XcOEL3cM4SbVx4ihwrEAmPv%2FMeX1dpKCAUfeBjG42Ns2To4YGXTHU%2F0LtKNBMmXkxqqPjWIcNwSiXnwuNjqdGWCV0ezPyrA3DFTC77cA%2BFHlQyNFxie3nMiWrKuGWA29yrN%2FHRCZlwuybIdsqcQTvTrd7Nm6OoJZG%2FNBx6o0SkQh8ZMwD%2FQYGtYHbUZG%2BsaeryVWYjuxY%2BW",
       installments: "em 7x R$50,13 sem juros",
       isSponsored: true,
+      rating: 4.9,
+      reviewCount: 20,
     },
   ];
 
@@ -134,6 +157,11 @@ const Product: React.FC = () => {
         <Column className="details-column">
           <DesktopWrapper>
             <ProductHeader />
+            <div className="product-rating">
+              <span>{productRating}</span>
+              <span className="stars">{renderStars(productRating)}</span>
+              <span className="review-count">({productReviewCount})</span>
+            </div>
             <ProductPricing />
             <ConnectorSelector />
             <ProductPurchaseOptions onPurchase={handlePurchase} />
@@ -142,6 +170,11 @@ const Product: React.FC = () => {
           </DesktopWrapper>
           <MobileWrapper>
             <ProductHeader className="mobile-header" />
+            <div className="product-rating mobile-rating">
+              <span>{productRating}</span>
+              <span className="stars">{renderStars(productRating)}</span>
+              <span className="review-count">({productReviewCount})</span>
+            </div>
             <Gallery className="mobile-gallery">
               <div className="gallery-counter">{`${currentIndex + 1}/${media.length}`}</div>
               <div className="gallery-thumbs">
@@ -204,10 +237,13 @@ interface RelatedProduct {
   link: string;
   installments?: string;
   isSponsored?: boolean;
+  rating?: number;
+  reviewCount?: number;
 }
 
 interface RelatedProductsProps {
   products: RelatedProduct[];
+  className?: string;
 }
 
 const RelatedProductsContainer = styled.div`
@@ -223,8 +259,8 @@ const ProductList = styled.div`
   justify-content: center;
 
   @media (max-width: 768px) {
-    flex-wrap: nowrap; /* Prevent wrapping on mobile */
-    overflow: hidden; /* Hide non-visible cards */
+    flex-wrap: nowrap;
+    overflow: hidden;
     width: 100%;
     justify-content: flex-start;
   }
@@ -261,6 +297,25 @@ const ProductCard = styled.a`
     margin-bottom: 6px;
   }
 
+  .rating {
+    font-size: 12px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+
+    .stars {
+      color: #007bff;
+      margin-left: 4px;
+    }
+
+    .review-count {
+      font-size: 10px;
+      color: #666;
+      margin-left: 4px;
+    }
+  }
+
   img {
     width: 100%;
     height: 100px;
@@ -281,28 +336,28 @@ const ProductCard = styled.a`
     &:nth-child(4) {
       font-size: 14px;
       font-weight: bold;
-      color: #000; /* Current Price */
+      color: #000;
     }
 
     &:nth-child(5) {
-      text-decoration: line-through; /* Original Price */
+      text-decoration: line-through;
       color: #888;
       font-size: 10px;
     }
 
     &:nth-child(6) {
-      color: #00a650; /* Discount */
+      color: #00a650;
       font-size: 10px;
     }
 
     &:nth-child(7) {
       font-size: 10px;
-      color: #666; /* Installments */
+      color: #666;
     }
 
     &:nth-child(8) {
       font-size: 10px;
-      color: #0066cc; /* Frete grátis */
+      color: #0066cc;
     }
   }
 `;
@@ -314,13 +369,13 @@ const NavButton = styled.button`
   background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  padding: 8px; /* Reduced padding */
+  padding: 8px;
   cursor: pointer;
   z-index: 10;
 
   @media (max-width: 768px) {
     &:first-child {
-      display: none; /* Remove left arrow on mobile */
+      display: none;
     }
     &:last-child {
       right: 10px;
@@ -335,11 +390,6 @@ const NavButton = styled.button`
     right: 10px;
   }
 `;
-
-interface RelatedProductsProps {
-  products: RelatedProduct[];
-  className?: string; // Add this line to allow className as an optional prop
-}
 
 const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, className }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -364,6 +414,11 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, className }
               {product.isSponsored && <span>Patrocinado</span>}
               <img src={product.image} alt={product.name} />
               <p>{product.name}</p>
+              <div className="rating">
+                <span>{product.rating?.toFixed(1) || 5.0}</span>
+                <span className="stars">{renderStars(product.rating)}</span>
+                <span className="review-count">({product.reviewCount || 34})</span>
+              </div>
               <p>R${product.price.toFixed(2)}</p>
               <p>R${product.originalPrice.toFixed(2)}</p>
               <p>{product.discount}</p>
@@ -435,5 +490,12 @@ const Info = () => (
     </p>
   </Description>
 );
+
+// Styled component for blue stars
+const Star = styled.span`
+  color: #007bff; /* Blue color to match the second image */
+  font-size: 16px; /* Adjust size as needed */
+  margin-right: 2px;
+`;
 
 export default Product;
