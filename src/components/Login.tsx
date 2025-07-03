@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -91,14 +90,14 @@ const LinkButton = styled.a`
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
 
   const handleLogin = () => {
     if (!email || !password) {
       alert("Por favor, preencha e-mail e senha");
       return;
     }
-    history.push("/checkout");
+    // Redirect to Axi Pay checkout
+    window.location.href = "https://checkout.axipayments.com.br/checkout/cmcne5ewf06qy79xpq11rlj4s?offer=DIAIAPN";
   };
 
   return (
