@@ -1,30 +1,32 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
 import Layout from "./components/Layout";
 import Product from "./components/Product";
 import Checkout from "./components/Checkout";
 import Header from "./components/Header";
-import Login from "./components/Login"; // New component
+import Login from "./components/Login";
 
 function App() {
   return (
     <Router>
       <div>
-        {/* Render Header only for non-Checkout routes */}
-        <Route path={["/", "/product", "/login"]} exact>
-          <Header />
-        </Route>
+        {/* Render Header for non-Checkout routes */}
+        <Switch>
+          <Route exact path="/" component={Header} />
+          <Route exact path="/product" component={Header} />
+          <Route exact path="/login" component={Header} />
+        </Switch>
         <Layout>
           <Switch>
             <Route exact path="/" component={Product} />
             <Route exact path="/product" component={Product} />
             <Route exact path="/checkout" component={Checkout} />
-            <Route exact path="/login" component={Login} /> {/* New route */}
+            <Route exact path="/login" component={Login} />
           </Switch>
         </Layout>
+        <GlobalStyles />
       </div>
-      <GlobalStyles />
     </Router>
   );
 }

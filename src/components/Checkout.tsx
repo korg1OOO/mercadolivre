@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 
 const CheckoutContainer = styled.div`
   display: flex;
@@ -41,7 +40,7 @@ const Logo = styled.img`
   }
 `;
 
-const LoginBox = styled.div`
+const CheckoutBox = styled.div`
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -60,7 +59,7 @@ const LoginBox = styled.div`
 const Title = styled.h2`
   font-size: 18px;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const Button = styled.button`
@@ -72,29 +71,17 @@ const Button = styled.button`
   font-size: 14px;
   cursor: pointer;
   width: 100%;
-  margin-bottom: 10px;
+  margin-top: 10px;
 
   &:hover {
     background-color: #2968c8;
   }
 `;
 
-const LinkButton = styled.a`
-  color: #3483fa;
-  font-size: 14px;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 const Checkout: React.FC = () => {
-  const history = useHistory();
-
-  const handleEnterClick = () => {
-    history.push("/login");
+  const handleBuyNow = () => {
+    // Redirect to Axi Pay checkout
+    window.location.href = "https://checkout.axipayments.com.br/checkout/cmcne5ewf06qy79xpq11rlj4s?offer=DIAIAPN";
   };
 
   return (
@@ -105,11 +92,10 @@ const Checkout: React.FC = () => {
           alt="Mercado Livre Logo"
         />
       </Header>
-      <LoginBox>
-        <Title>Olá! Para comprar, acesse a sua conta</Title>
-        <Button>Criar conta</Button>
-        <LinkButton onClick={handleEnterClick} href="#">Entrar</LinkButton>
-      </LoginBox>
+      <CheckoutBox>
+        <Title>Finalizar Compra</Title>
+        <Button onClick={handleBuyNow}>Comprar Agora</Button>
+      </CheckoutBox>
     </CheckoutContainer>
   );
 };

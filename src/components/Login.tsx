@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -8,7 +9,7 @@ const LoginContainer = styled.div`
   justify-content: flex-start;
   min-height: 100vh;
   background-color: #f5f5f5;
-  padding-top: 60px; /* Space for potential header */
+  padding-top: 60px;
 `;
 
 const Header = styled.div`
@@ -88,6 +89,18 @@ const LinkButton = styled.a`
 `;
 
 const Login: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  const handleLogin = () => {
+    if (!email || !password) {
+      alert("Por favor, preencha e-mail e senha");
+      return;
+    }
+    history.push("/checkout");
+  };
+
   return (
     <LoginContainer>
       <Header>
@@ -98,9 +111,20 @@ const Login: React.FC = () => {
       </Header>
       <LoginBox>
         <Title>Entrar na sua conta</Title>
-        <Input type="text" placeholder="E-mail ou usuário" />
-        <Input type="password" placeholder="Senha" />
-        <Button>Entrar</Button>
+        <Input
+          type="text"
+          placeholder="E-mail ou usuário"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button onClick={handleLogin}>Entrar</Button>
+        <LinkButton href="#">Esqueceu sua senha?</LinkButton>
       </LoginBox>
     </LoginContainer>
   );
