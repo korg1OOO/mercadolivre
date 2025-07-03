@@ -681,7 +681,7 @@ const ReviewsContainer = styled.div`
 
 const Reviews: React.FC = () => {
   const ratingBreakdown = [
-    { stars: 5, count: 34, percentage: 100 },
+    { stars: 5, count: 33, percentage: 100 },
     { stars: 4, count: 5, percentage: 14.7 },
     { stars: 3, count: 1, percentage: 2.2 },
     { stars: 2, count: 0, percentage: 0.0 },
@@ -699,7 +699,7 @@ const Reviews: React.FC = () => {
       <div className="rating-summary">
         <span className="rating">5.0</span>
         <span className="stars">{renderStars(5.0)}</span>
-        <span className="review-count">(34 avaliações)</span>
+        <span className="review-count">(39 avaliações)</span>
       </div>
       <div className="rating-breakdown">
         {ratingBreakdown.map((item) => (
