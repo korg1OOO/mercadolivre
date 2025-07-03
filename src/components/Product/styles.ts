@@ -95,7 +95,7 @@ export const MobileWrapper = styled.div`
     > .mobile-purchase-options {
       order: 5;
     }
-    > .related-products-section {
+    > .related-products-section { /* Add class to RelatedProducts */
       order: 6;
       margin-bottom: 16px;
     }
@@ -294,8 +294,8 @@ export const Description = styled.div`
     margin-bottom: clamp(16px, 3vw, 32px);
   }
   > p {
-    font-size: clamp(16px, 2.5vw, 20px);
+    font-size: clamp(15px, 2.5vw, 19px); /* Reduced by 1px from clamp(16px, 2.5vw, 20px) */
     color: var(--color-gray);
-    line-height: clamp(20px, 3vw, 27px);
+    line-height: clamp(18px, 2.5vw, 24px); /* Reduced from clamp(20px, 3vw, 27px) */
   }
 `;

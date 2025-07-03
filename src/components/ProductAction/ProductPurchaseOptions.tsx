@@ -1,12 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { MethodCard, CheckIcon, Actions, Button, Benefits, ShieldIcon } from "./styles";
 
 interface ProductPurchaseOptionsProps {
   className?: string;
-  onPurchase: () => void; // Add callback for purchase action
 }
 
-const ProductPurchaseOptions: React.FC<ProductPurchaseOptionsProps> = ({ className, onPurchase }) => {
+const ProductPurchaseOptions: React.FC<ProductPurchaseOptionsProps> = ({ className }) => {
+  const history = useHistory();
+
+  const handlePurchase = () => {
+    history.push("/checkout");
+  };
+
   return (
     <div className={className}>
       <MethodCard>
@@ -20,7 +26,7 @@ const ProductPurchaseOptions: React.FC<ProductPurchaseOptionsProps> = ({ classNa
         </div>
       </MethodCard>
       <Actions>
-        <Button solid onClick={onPurchase}>Comprar agora</Button>
+        <Button solid onClick={handlePurchase}>Comprar agora</Button>
         <Button>Adicionar ao carrinho</Button>
       </Actions>
       <Benefits>

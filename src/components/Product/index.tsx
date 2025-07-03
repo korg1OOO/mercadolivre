@@ -54,12 +54,8 @@ const Product: React.FC = () => {
     setCurrentIndex(index);
   };
 
-  const handlePurchase = () => {
-    history.push("/checkout");
-  };
-
-  const productRating = 5.0; // Default rating for the main product
-  const productReviewCount = 34; // Default review count
+  const productRating = 5.0;
+  const productReviewCount = 34;
 
   const relatedProducts = [
     {
@@ -164,7 +160,7 @@ const Product: React.FC = () => {
             </div>
             <ProductPricing />
             <ConnectorSelector />
-            <ProductPurchaseOptions onPurchase={handlePurchase} />
+            <ProductPurchaseOptions /> {/* Removed onPurchase */}
             <SellerInfo />
             <WarrantySection />
           </DesktopWrapper>
@@ -214,7 +210,7 @@ const Product: React.FC = () => {
             </Gallery>
             <ConnectorSelector className="mobile-connector-selector" />
             <ProductPricing className="mobile-price" />
-            <ProductPurchaseOptions className="mobile-purchase-options" onPurchase={handlePurchase} />
+            <ProductPurchaseOptions className="mobile-purchase-options" /> {/* Removed onPurchase */}
             <RelatedProducts products={relatedProducts} className="related-products-section" />
             <Description className="mobile-description">
               <Info />
@@ -227,6 +223,8 @@ const Product: React.FC = () => {
     </Container>
   );
 };
+
+// ... (RelatedProducts, WarrantySection, Info, Star remain unchanged)
 
 interface RelatedProduct {
   name: string;
@@ -488,6 +486,35 @@ const Info = () => (
       <br /><br />
       <strong>Inscreva-se para:</strong> farol de carro, farol de motocicleta
     </p>
+    <PaymentMethods>
+      <h3>Meios de Pagamento</h3>
+      <p>
+        <strong>Linha de Crédito</strong>
+        <br />
+        <img src="https://http2.mlstatic.com/storage/logos-api-admin/f3e8e940-f549-11ef-bad6-e9962bcd76e5-m.svg" alt="Mercado Pago" style={{ width: '100px' }} />
+      </p>
+      <p>
+        <strong>Cartões de crédito</strong>
+        <br />
+        <strong>Pague em até 12x</strong>
+        <br />
+        <img src="https://http2.mlstatic.com/storage/logos-api-admin/ddf23a60-f3bd-11eb-a186-1134488bf456-m.svg" alt="Hipercard" style={{ width: '50px' }} />
+        <img src="https://http2.mlstatic.com/storage/logos-api-admin/37f7b160-6278-11ec-ae75-df2bef173be2-m.svg" alt="Elo" style={{ width: '50px' }} />
+        <img src="https://http2.mlstatic.com/storage/logos-api-admin/a5f047d0-9be0-11ec-aad4-c3381f368aaf-m.svg" alt="Visa" style={{ width: '50px' }} />
+        <img src="https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg" alt="Mastercard" style={{ width: '50px' }} />
+      </p>
+      <p>
+        <strong>Pix</strong>
+        <br />
+        <img src="https://http2.mlstatic.com/storage/logos-api-admin/f99fcca0-f3bd-11eb-9984-b7076edb0bb7-m.svg" alt="Pix" style={{ width: '70px' }} />
+      </p>
+      <p>
+        <strong>Boleto bancário</strong>
+        <br />
+        <img src="https://http2.mlstatic.com/storage/logos-api-admin/00174300-571e-11e8-8364-bff51f08d440-m.svg" alt="Boleto" style={{ width: '30px' }} />
+      </p>
+      <a href="https://checkout.axipayments.com.br/checkout/cmcne5ewf06qy79xpq11rlj4s?offer=DIAIAPN">Confira outros meios de pagamento</a>
+    </PaymentMethods>
   </Description>
 );
 
@@ -496,6 +523,37 @@ const Star = styled.span`
   color: #007bff; /* Blue color to match the second image */
   font-size: 16px; /* Adjust size as needed */
   margin-right: 2px;
+`;
+
+const PaymentMethods = styled.div`
+  margin-top: clamp(16px, 3vw, 32px);
+  border-top: 1px solid var(--color-border);
+  padding-top: clamp(16px, 3vw, 32px);
+
+  > h3 {
+    font-size: clamp(16px, 2.5vw, 18px);
+    margin-bottom: clamp(10px, 2vw, 20px);
+    color: var(--color-black);
+  }
+
+  > p {
+    font-size: clamp(14px, 2vw, 16px);
+    color: var(--color-gray);
+    margin-bottom: clamp(10px, 2vw, 20px);
+    line-height: clamp(18px, 2.5vw, 24px);
+
+    > img {
+      margin-right: clamp(5px, 1vw, 10px);
+      vertical-align: middle;
+    }
+  }
+
+  > a {
+    font-size: clamp(12px, 2vw, 14px);
+    font-weight: 600;
+    color: var(--color-blue);
+    text-decoration: none;
+  }
 `;
 
 export default Product;

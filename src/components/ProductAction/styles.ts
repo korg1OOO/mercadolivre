@@ -127,9 +127,17 @@ export const Button = styled.button<ButtonProps>`
   border: ${(props) => (props.solid ? "none" : "1px solid var(--color-blue)")};
   cursor: pointer;
   width: 100%;
+  min-height: 40px; /* Default height for accessibility */
 
   &:hover {
     opacity: 0.9;
+  }
+
+  /* Larger button on mobile */
+  @media (max-width: 768px) {
+    padding: clamp(12px, 3vw, 16px) clamp(10px, 3vw, 14px); /* Increased padding */
+    font-size: clamp(15px, 3vw, 17px); /* Larger font */
+    min-height: 60px; /* Larger tap target for mobile */
   }
 `;
 
