@@ -91,7 +91,7 @@ const Product: React.FC = () => {
       discount: "10% OFF",
       image:
         "https://http2.mlstatic.com/D_NQ_NP_816733-MLB79741842568_102024-O-kit-lmpada-led-philips-ultinon-access-nano-11.webp",
-      link: "https://click1.mercadolivre.com.br/mclics/clicks/external/MLB/count?a=1rB8ufiXATfbmlYX2%2Ftya15pI6bRojYjHOotHg8HSus7DsoJ%2FmDVZocFAm1w56V1GxahdzIm%2FmWACd84m8m8YOEyanbBP46O%2FiGbtmLN4EjoOW8I%2BT3e9p5G9yleqpApiSFb2KkyvmaX8ZYS6yQkFwaLf1lPkL9FZkPyvpgiE%2B64KygQQ2cm9hNCV4zaovyI3kWRKiPlyxtt%2Frq9yvLOpa3UUQ3s8luhJCFfixQKhTv0a9FMsDFG86nl4aNcfxER%2BVETiUtZ4IjT9nQEFUvoHrP6wXvA1K28xyEvQfgQ5p0E3mO99EHnZQca4b6%2FmgMk7gLEcYn4ZlXcHW7RhspqaLr2aHP4YeEexVEFbzIzB5TKcbl6oad0KerUDnCSh2tde6fA1tAVFtnEOboU%2FU0iVKr2YWYK8Da7GXtJjZQJ%2BghrVIVNFFVt8%2F4mwSFzxVS7SQu7EAc5IK1H3Af%2Bijgiu%2FQIeXHi%2FZ2C1XX8bnf5mBbWeU%2BzKQ1iYKTyNcW1T1zp4JeaAWy8kTWCGJ%2FrZI0uLwt%2BJ1mkL%2BtIDcp9VbT8Pi75TMzQAo0HPFBUSb43zLoi1Imt8RhYKteXkHbfaWA51xGRSFKnawpdB4dEU6OqAZdGyXcUYral1pPobjgRGrTztvHkVhF80d6wxzU1TpZ2DB7kiL9dSEt%2BRfHCwRO5L9UcB72c9ks9Abv27J%2F1PK0krrQg4m1%2BH%2FXg8SuU7XcOEL3cM4SbVx4ihwrEAmPv%2FMeX1dpKCAUfeBjG42Ns2To4YGXTHU%2F0LtKNBMmXkxqqPjWIcNwSiXnwuNjqdGWCV0ezPyrA3DFTC77cA%2BFHlQyNFxie3nMiWrKuGWA29yrN%2FHRCZlwuybIdsqcQTvTrd7Nm6OoJZG%2FNBx6o0SkQh8ZMwD%2FQYGtYHbUZG%2BsaeryVWYjuxY%2BW",
+      link: "https://click1.mercadolivre.com.br/mclics/clicks/external/MLB/count?a=1rB8ufiXATfbmlYX2%2Ftya15pI6bRojYjHOotHg8HSus7DsoJ%2FmDVZocFAm1w56V1GxahdzIm%2FmWACd84m8m8YOEyanbBP46O%2FiGbtmLN4EjoOW8I%2BT3e9p5G9yleqpApiSFb2KkyvmaX8ZYS6yQkFwaLf1lPkL9FZkPyvpgiE%2B64KygQQ2cm9hNCV4zaovyI3kWRKiPlyxtt%2Frq9yvLOpa3UUQ3s8l徉luhJCFfixQKhTv0a9FMsDFG86nl4aNcfxER%2BVETiUtZ4IjT9nQEFUvoHrP6wXvA1K28xyEvQfgQ5p0E3mO99EHnZQca4b6%2FmgMk7gLEcYn4ZlXcHW7RhspqaLr2aHP4YeEexVEFbzIzB5TKcbl6oad0KerUDnCSh2tde6fA1tAVFtnEOboU%2FU0iVKr2YWYK8Da7GXtJjZQJ%2BghrVIVNFFVt8%2F4mwSFzxVS7SQu7EAc5IK1H3Af%2Bijgiu%2FQIeXHi%2FZ2C1XX8bnf5mBbWeU%2BzKQ1iYKTyNcW1T1zp4JeaAWy8kTWCGJ%2FrZI0uLwt%2BJ1mkL%2BtIDcp9VbT8Pi75TMzQAo0HPFBUSb43zLoi1Imt8RhYKteXkHbfaWA51xGRSFKnawpdB4dEU6OqAZdGyXcUYral1pPobjgRGrTztvHkVhF80d6wxzU1TpZ2DB7kiL9dSEt%2BRfHCwRO5L9UcB72c9ks9Abv27J%2F1PK0krrQg4m1%2BH%2FXg8SuU7XcOEL3cM4SbVx4ihwrEAmPv%2FMeX1dpKCAUfeBjG42Ns2To4YGXTHU%2F0LtKNBMmXkxqqPjWIcNwSiXnwuNjqdGWCV0ezPyrA3DFTC77cA%2BFHlQyNFxie3nMiWrKuGWA29yrN%2FHRCZlwuybIdsqcQTvTrd7Nm6OoJZG%2FNBx6o0SkQh8ZMwD%2FQYGtYHbUZG%2BsaeryVWYjuxY%2BW",
       installments: "em 7x R$50,13 sem juros",
       isSponsored: true,
       rating: 4.9,
@@ -101,8 +101,7 @@ const Product: React.FC = () => {
 
   return (
     <Container>
-      <Row>
-      </Row>
+      <Row></Row>
 
       <Panel>
         <Column>
@@ -243,22 +242,37 @@ interface RelatedProductsProps {
 }
 
 const RelatedProductsContainer = styled.div`
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 `;
 
 const ProductList = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10px;
-  justify-content: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  min-width: 0;
+  touch-action: pan-x;
+  justify-content: flex-start;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
-    flex-wrap: nowrap;
-    overflow: hidden;
     width: 100%;
-    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
   }
 `;
 
@@ -270,21 +284,18 @@ const ProductCard = styled.a`
   align-items: center;
   width: 200px;
   min-width: 150px;
+  flex: 0 0 auto;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 10px;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
 
   @media (max-width: 768px) {
-    flex: 0 0 100%;
-    display: none;
-    &.visible {
-      display: flex;
-    }
-    &.hidden {
-      display: none;
-    }
+    width: 100px;
+    min-width: 100px;
+    padding: 8px;
   }
 
   span {
@@ -317,6 +328,10 @@ const ProductCard = styled.a`
     height: 100px;
     object-fit: contain;
     margin-bottom: 6px;
+
+    @media (max-width: 768px) {
+      height: 80px;
+    }
   }
 
   p {
@@ -355,45 +370,18 @@ const ProductCard = styled.a`
       font-size: 10px;
       color: #0066cc;
     }
-  }
-`;
 
-const NavButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-  z-index: 10;
+    @media (max-width: 768px) {
+      font-size: 10px;
 
-  @media (max-width: 768px) {
-    &:first-child {
-      display: none;
+      &:nth-child(4) {
+        font-size: 12px;
+      }
     }
-    &:last-child {
-      right: 10px;
-    }
-  }
-
-  &:first-child {
-    left: 10px;
-  }
-
-  &:last-child {
-    right: 10px;
   }
 `;
 
 const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, className }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev < products.length - 1 ? prev + 1 : 0));
-  };
-
   return (
     <Section className={className}>
       <h4>Produtos relacionados</h4>
@@ -405,7 +393,6 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, className }
               href={product.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={index === currentSlide ? "visible" : "hidden"}
             >
               {product.isSponsored && <span>Patrocinado</span>}
               <img src={product.image} alt={product.name} />
@@ -423,7 +410,6 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products, className }
             </ProductCard>
           ))}
         </ProductList>
-        <NavButton onClick={handleNext}>{">"}</NavButton>
       </RelatedProductsContainer>
     </Section>
   );

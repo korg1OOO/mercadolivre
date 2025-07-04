@@ -4,6 +4,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
 `;
 
 export const Row = styled.div`
@@ -11,6 +14,8 @@ export const Row = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: clamp(8px, 2vw, 16px) 0;
+  width: 100%;
+  box-sizing: border-box;
 
   > a {
     font-size: clamp(12px, 2vw, 14px);
@@ -31,6 +36,8 @@ export const Panel = styled.div`
   box-shadow: var(--panel-shadow);
   display: grid;
   grid-template-columns: 65fr 35fr;
+  width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -48,10 +55,12 @@ export const Column = styled.div`
   &:first-child {
     border-right: 1px solid var(--color-border);
     padding: 16px;
+    box-sizing: border-box;
   }
 
   &:nth-child(2) {
     padding: 16px;
+    box-sizing: border-box;
   }
 
   @media (max-width: 768px) {
@@ -73,9 +82,13 @@ export const MobileWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 100vw;
     padding: 16px;
+    box-sizing: border-box;
+    overflow-x: hidden;
     > * {
       width: 100%;
+      box-sizing: border-box;
     }
     > .mobile-header {
       order: 1;
@@ -95,7 +108,7 @@ export const MobileWrapper = styled.div`
     > .mobile-purchase-options {
       order: 5;
     }
-    > .related-products-section { /* Add class to RelatedProducts */
+    > .related-products-section {
       order: 6;
       margin-bottom: 16px;
     }
@@ -126,6 +139,8 @@ export const Gallery = styled.div`
   display: flex;
   align-items: flex-start;
   padding: clamp(10px, 2vw, 20px);
+  box-sizing: border-box;
+  width: 100%;
 
   @media (max-width: 768px) {
     padding: 10px;
@@ -234,15 +249,13 @@ export const Section = styled.div`
   padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px);
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 
   &.related-products-section {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    overflow-x: hidden;
   }
 
   @media (max-width: 768px) {
@@ -284,6 +297,8 @@ export const Section = styled.div`
 export const Description = styled.div`
   border-top: 1px solid var(--color-border);
   padding: clamp(22px, 4vw, 44px) clamp(16px, 3vw, 32px);
+  width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     order: 3;
@@ -294,8 +309,8 @@ export const Description = styled.div`
     margin-bottom: clamp(16px, 3vw, 32px);
   }
   > p {
-    font-size: clamp(15px, 2.5vw, 19px); /* Reduced by 1px from clamp(16px, 2.5vw, 20px) */
+    font-size: clamp(15px, 2.5vw, 19px);
     color: var(--color-gray);
-    line-height: clamp(18px, 2.5vw, 24px); /* Reduced from clamp(20px, 3vw, 27px) */
+    line-height: clamp(18px, 2.5vw, 24px);
   }
 `;
