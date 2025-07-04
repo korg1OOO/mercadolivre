@@ -102,12 +102,6 @@ const Product: React.FC = () => {
   return (
     <Container>
       <Row>
-        <a href="https://www.mercadolivre.com.br/" target="_blank" rel="noopener noreferrer">
-          Compartilhar
-        </a>
-        <a href="https://www.mercadolivre.com.br/vender" target="_blank" rel="noopener noreferrer">
-          Vender um igual
-        </a>
       </Row>
 
       <Panel>
@@ -225,6 +219,7 @@ const Product: React.FC = () => {
           </MobileWrapper>
         </Column>
       </Panel>
+      <Row></Row>
     </Container>
   );
 };
